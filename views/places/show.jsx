@@ -1,21 +1,33 @@
 const React = require('react')
 const Def = require('../default')
 
-function Show (place) {
+function Show(data) {
   return (
     <Def>
       <main>
-        <h1>{place.name} Page</h1>
-        <p>
-          Located in {place.city}, {place.state}
-        </p>
-        <img src={place.img} alt={place.name} />
+        <h1>{data.place.name} Page</h1>
+        <div className='col-md-8'>
+          <div><h2>Rating</h2>
+            <p>Not yet rated!</p></div>
+          <div><img src={data.place.pic} alt={data.place.name} /></div>
+          <div><h2>Description</h2>
+            <p>
+              Located in {data.place.city}, {data.place.state}. Cuisine type: {data.place.cuisines}
+            </p></div>
+          <div><h2>Comments</h2>
+            <p>No comments yet!</p></div>
+        </div>
 
-        <a href={`/places/${place.id}/edit`}><button>Edit</button></a>
+        <a href={`/places/${data.id}/edit`} className="btn btn-warning"> 
+  Edit
+</a>     
 
-        <form action={`/places/${place.id}?_method=DELETE`} method="POST">
-          <input type='submit' value="DELETE" />
-        </form>
+<form method="POST" action={`/places/${data.id}?_method=DELETE`}> 
+  <button type="submit" className="btn btn-danger">
+    Delete
+  </button>
+</form> 
+
       </main>
     </Def>
   )
