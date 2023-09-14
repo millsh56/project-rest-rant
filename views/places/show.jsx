@@ -1,7 +1,7 @@
 const React = require('react')
 const Def = require('../default')
 
-function Post(place) {
+function Show (place) {
   return (
     <Def>
       <main>
@@ -23,4 +23,6 @@ function Post(place) {
 
 
 
-module.exports = Post
+module.exports = Show
+
+
